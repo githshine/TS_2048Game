@@ -1,0 +1,81 @@
+[
+  {
+    "filePath": "/Users/xiahan/👸 Queen's University/ELEC 876 Software Reengineering/Project/source/git/javascript-mini-projects/2048Game/ANKUR2304/script.js",
+    "messages": [
+      {
+        "ruleId": "no-unused-vars",
+        "severity": 2,
+        "message": "'q' is assigned a value but never used.",
+        "line": 1,
+        "column": 5,
+        "nodeType": "Identifier",
+        "messageId": "unusedVar",
+        "endLine": 1,
+        "endColumn": 6
+      },
+      {
+        "ruleId": "no-redeclare",
+        "severity": 2,
+        "message": "'arr' is already defined.",
+        "line": 7,
+        "column": 5,
+        "nodeType": "Identifier",
+        "messageId": "redeclared",
+        "endLine": 7,
+        "endColumn": 8
+      },
+      {
+        "ruleId": "no-unused-vars",
+        "severity": 2,
+        "message": "'pause' is defined but never used.",
+        "line": 410,
+        "column": 10,
+        "nodeType": "Identifier",
+        "messageId": "unusedVar",
+        "endLine": 410,
+        "endColumn": 15
+      },
+      {
+        "ruleId": "no-unused-vars",
+        "severity": 2,
+        "message": "'start' is defined but never used.",
+        "line": 421,
+        "column": 10,
+        "nodeType": "Identifier",
+        "messageId": "unusedVar",
+        "endLine": 421,
+        "endColumn": 15
+      },
+      {
+        "ruleId": "no-unused-vars",
+        "severity": 2,
+        "message": "'resume' is defined but never used.",
+        "line": 430,
+        "column": 10,
+        "nodeType": "Identifier",
+        "messageId": "unusedVar",
+        "endLine": 430,
+        "endColumn": 16
+      }
+    ],
+    "suppressedMessages": [],
+    "errorCount": 5,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "var q = 4;\nvar arr = document.getElementsByClassName(\"element\");\ninit();\n\nwindow.onload = init();\n\nvar arr = document.getElementsByClassName(\"element\");\n\nfunction right() {\n  var can = false;\n  var access = false;\n  var k;\n  var score = document.getElementById(\"score\");\n\n  for (var i = 14; i > 0; i -= 4) {\n    //alert(\"step1\");\n    access = false;\n    for (var j = i; j >= i - 2; j--) {\n      //alert(\"step2\");\n      if (arr[j].innerHTML !== \"\") {\n        k = j;\n        while (\n          k < i + 1 &&\n          (parseInt(arr[k + 1].innerHTML) === parseInt(arr[k].innerHTML) ||\n            arr[k + 1].innerHTML === \"\")\n        ) {\n          //alert(\"i=\"+i+\" j=\"+j+\" k=\"+k);\n          if (\n            parseInt(arr[k + 1].innerHTML) === parseInt(arr[k].innerHTML) &&\n            access === false\n          ) {\n            arr[k + 1].innerHTML =\n              parseInt(arr[k + 1].innerHTML) + parseInt(arr[k].innerHTML);\n            score.innerHTML =\n              parseInt(arr[k + 1].innerHTML) + parseInt(score.innerHTML);\n            arr[k].innerHTML = \"\";\n            can = true;\n            access = true;\n          } else if (\n            parseInt(arr[k + 1].innerHTML) === parseInt(arr[k].innerHTML) &&\n            access === true\n          ) {\n            access === false;\n          } else if (arr[k + 1].innerHTML === \"\") {\n            arr[k + 1].innerHTML = parseInt(arr[k].innerHTML);\n            arr[k].innerHTML = \"\";\n            can = true;\n          }\n          k += 1;\n        }\n      }\n    }\n  }\n  if (can) {\n    av();\n  }\n}\n\nfunction left() {\n  var can = false;\n  var access = false;\n  var k;\n  var score = document.getElementById(\"score\");\n  //fixed\n  for (var i = 13; i > 0; i -= 4) {\n    //alert(\"step1\");\n    access = false;\n    for (var j = i; j <= i + 2; j++) {\n      //alert(\"step2\");\n      if (arr[j].innerHTML !== \"\") {\n        k = j;\n        while (\n          k > i - (i % 4) &&\n          (parseInt(arr[k - 1].innerHTML) === parseInt(arr[k].innerHTML) ||\n            arr[k - 1].innerHTML === \"\")\n        ) {\n          //alert(\"i=\"+i+\" j=\"+j+\" k=\"+k);\n          if (\n            parseInt(arr[k - 1].innerHTML) === parseInt(arr[k].innerHTML) &&\n            access === false\n          ) {\n            arr[k - 1].innerHTML =\n              parseInt(arr[k - 1].innerHTML) + parseInt(arr[k].innerHTML);\n            arr[k].innerHTML = \"\";\n            can = true;\n            access = true;\n            score.innerHTML =\n              parseInt(arr[k - 1].innerHTML) + parseInt(score.innerHTML);\n          } else if (\n            parseInt(arr[k - 1].innerHTML) === parseInt(arr[k].innerHTML) &&\n            access === true\n          ) {\n            access === false;\n          } else if (arr[k - 1].innerHTML === \"\") {\n            arr[k - 1].innerHTML = parseInt(arr[k].innerHTML);\n            arr[k].innerHTML = \"\";\n            can = true;\n          }\n          k -= 1;\n        }\n      }\n    }\n  }\n  if (can) {\n    av();\n  }\n}\n\nfunction down() {\n  var can = false;\n  var access = false;\n  var k;\n  var score = document.getElementById(\"score\");\n  //fixed\n  for (var i = 11; i > 7; i -= 1) {\n    //alert(arr[i].innerHTML===\"\");\n    access = false;\n    for (var j = i; j >= 0; j = j - 4) {\n      if (arr[j].innerHTML !== \"\") {\n        k = j;\n        while (\n          k < 12 &&\n          (parseInt(arr[k + 4].innerHTML) === parseInt(arr[k].innerHTML) ||\n            arr[k + 4].innerHTML === \"\")\n        ) {\n          //alert(\"i=\"+i+\" j=\"+j+\" k=\"+k);\n          if (\n            parseInt(arr[k + 4].innerHTML) === parseInt(arr[k].innerHTML) &&\n            access === false\n          ) {\n            arr[k + 4].innerHTML =\n              parseInt(arr[k + 4].innerHTML) + parseInt(arr[k].innerHTML);\n            arr[k].innerHTML = \"\";\n            can = true;\n            access = true;\n            score.innerHTML =\n              parseInt(arr[k + 4].innerHTML) + parseInt(score.innerHTML);\n          } else if (\n            parseInt(arr[k + 4].innerHTML) === parseInt(arr[k].innerHTML) &&\n            access === true\n          ) {\n            access === false;\n          } else if (arr[k + 4].innerHTML === \"\") {\n            arr[k + 4].innerHTML = parseInt(arr[k].innerHTML);\n            arr[k].innerHTML = \"\";\n            can = true;\n          }\n          k += 4;\n        }\n      }\n    }\n  }\n  if (can) {\n    av();\n  }\n}\n\nfunction up() {\n  var can = false;\n  var access = false;\n  var k;\n  var score = document.getElementById(\"score\");\n  //fixed\n  for (var i = 7; i > 3; i -= 1) {\n    //alert(arr[i].innerHTML===\"\");\n    access = false;\n    for (var j = i; j < i + 9; j += 4) {\n      if (arr[j].innerHTML !== \"\") {\n        k = j;\n        while (\n          k >= i &&\n          (parseInt(arr[k - 4].innerHTML) === parseInt(arr[k].innerHTML) ||\n            arr[k - 4].innerHTML === \"\")\n        ) {\n          //alert(\"i=\"+i+\" j=\"+j+\" k=\"+k);\n          if (\n            parseInt(arr[k - 4].innerHTML) === parseInt(arr[k].innerHTML) &&\n            access === false\n          ) {\n            arr[k - 4].innerHTML =\n              parseInt(arr[k - 4].innerHTML) + parseInt(arr[k].innerHTML);\n            arr[k].innerHTML = \"\";\n            can = true;\n            access = true;\n            score.innerHTML =\n              parseInt(arr[k - 4].innerHTML) + parseInt(score.innerHTML);\n          } else if (\n            parseInt(arr[k - 4].innerHTML) === parseInt(arr[k].innerHTML) &&\n            access === true\n          ) {\n            access === false;\n          } else if (arr[k - 4].innerHTML === \"\") {\n            arr[k - 4].innerHTML = parseInt(arr[k].innerHTML);\n            arr[k].innerHTML = \"\";\n            can = true;\n          }\n          k -= 4;\n        }\n      }\n    }\n  }\n  if (can) {\n    av();\n  }\n}\n\nfunction end() {\n  alert(\n    \"Your Score Is:\" + document.getElementById(\"score\").innerHTML + \" Game Over\"\n  );\n  reset();\n}\n\nfunction random() {\n  var done = false;\n  while (done === false) {\n    var num = Math.floor(Math.random() * 16);\n    if (arr[num].innerHTML === \"\") {\n      arr[num].innerHTML = 2;\n      done = true;\n    }\n  }\n}\n\nfunction av() {\n  var x = false;\n  var count = 0;\n  for (var i = 0; i < 16; i++) {\n    if (arr[i].innerHTML === \"\") {\n      x = true;\n      count++;\n    }\n  }\n  if (x) {\n    random();\n  }\n  if (count === 1) {\n    check();\n  }\n}\n\nfunction check() {\n  var x = false;\n  for (var i = 0; i < 16; i++) {\n    switch (i) {\n      case 0:\n        if (\n          arr[1].innerHTML === arr[0].innerHTML ||\n          arr[4].innerHTML === arr[0].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 1:\n        if (\n          arr[1].innerHTML === arr[0].innerHTML ||\n          arr[2].innerHTML === arr[1].innerHTML ||\n          arr[1].innerHTML === arr[5].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 2:\n        if (\n          arr[2].innerHTML === arr[1].innerHTML ||\n          arr[3].innerHTML === arr[2].innerHTML ||\n          arr[2].innerHTML === arr[6].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 3:\n        if (\n          arr[3].innerHTML === arr[2].innerHTML ||\n          arr[3].innerHTML === arr[7].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 4:\n        if (\n          arr[4].innerHTML === arr[0].innerHTML ||\n          arr[4].innerHTML === arr[8].innerHTML ||\n          arr[4].innerHTML === arr[5].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 5:\n        if (\n          arr[5].innerHTML === arr[1].innerHTML ||\n          arr[5].innerHTML === arr[6].innerHTML ||\n          arr[4].innerHTML === arr[5].innerHTML ||\n          arr[5].innerHTML === arr[9].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 6:\n        if (\n          arr[6].innerHTML === arr[5].innerHTML ||\n          arr[6].innerHTML === arr[2].innerHTML ||\n          arr[6].innerHTML === arr[7].innerHTML ||\n          arr[6].innerHTML === arr[10].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 7:\n        if (\n          arr[7].innerHTML === arr[3].innerHTML ||\n          arr[7].innerHTML === arr[11].innerHTML ||\n          arr[7].innerHTML === arr[6].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 8:\n        if (\n          arr[8].innerHTML === arr[4].innerHTML ||\n          arr[8].innerHTML === arr[12].innerHTML ||\n          arr[8].innerHTML === arr[9].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 9:\n        if (\n          arr[9].innerHTML === arr[8].innerHTML ||\n          arr[9].innerHTML === arr[5].innerHTML ||\n          arr[9].innerHTML === arr[10].innerHTML ||\n          arr[9].innerHTML === arr[13].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 10:\n        if (\n          arr[10].innerHTML === arr[9].innerHTML ||\n          arr[10].innerHTML === arr[11].innerHTML ||\n          arr[10].innerHTML === arr[6].innerHTML ||\n          arr[10].innerHTML === arr[14].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 11:\n        if (\n          arr[11].innerHTML === arr[7].innerHTML ||\n          arr[11].innerHTML === arr[15].innerHTML ||\n          arr[11].innerHTML === arr[10].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 12:\n        if (\n          arr[12].innerHTML === arr[8].innerHTML ||\n          arr[12].innerHTML === arr[13].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 13:\n        if (\n          arr[13].innerHTML === arr[12].innerHTML ||\n          arr[13].innerHTML === arr[9].innerHTML ||\n          arr[13].innerHTML === arr[14].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 14:\n        if (\n          arr[14].innerHTML === arr[13].innerHTML ||\n          arr[14].innerHTML === arr[10].innerHTML ||\n          arr[14].innerHTML === arr[15].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n      case 15:\n        if (\n          arr[15].innerHTML === arr[11].innerHTML ||\n          arr[15].innerHTML === arr[14].innerHTML\n        ) {\n          x = true;\n        }\n        break;\n    }\n  }\n  if (!x) {\n    end();\n  }\n}\n\nfunction init() {\n  var s = document.getElementById(\"splash\");\n  s.style.display = \"block\";\n  var arr = document.getElementsByClassName(\"element\");\n  for (var i = 0; i < 16; i += 1) {\n    arr[i].innerHTML = \"\";\n  }\n  var control = document.getElementById(\"control\");\n  control.style.display = \"block\";\n  var score = document.getElementById(\"score\");\n  score.innerHTML = 0;\n}\n\nfunction pause() {\n  var pause = document.getElementById(\"pause\");\n  pause.style.display = \"block\";\n  var control = document.getElementById(\"control\");\n  control.style.display = \"none\";\n}\nfunction reset() {\n  var pause = document.getElementById(\"pause\");\n  pause.style.display = \"none\";\n  init();\n}\nfunction start() {\n  var splash = document.getElementById(\"splash\");\n  var game = document.getElementById(\"game\");\n  splash.style.display = \"none\";\n  game.style.display = \"block\";\n  random();\n  random();\n  //alert();\n}\nfunction resume() {\n  var pause = document.getElementById(\"pause\");\n  pause.style.display = \"none\";\n  var control = document.getElementById(\"control\");\n  control.style.display = \"block\";\n}\n\nwindow.addEventListener(\"keydown\", function (e) {\n  if (e.code == \"ArrowLeft\") {\n    left();\n  } else if (e.code == \"ArrowRight\") {\n    right();\n  } else if (e.code == \"ArrowUp\") {\n    up();\n  } else if (e.code == \"ArrowDown\") {\n    down();\n  }\n});\n",
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "/Users/xiahan/👸 Queen's University/ELEC 876 Software Reengineering/Project/source/git/javascript-mini-projects/2048Game/eslint.config.mjs",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  }
+]

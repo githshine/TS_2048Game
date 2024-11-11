@@ -1,0 +1,16 @@
+{
+  "name": "2048game_addtype",
+  "version": "1.0.0",
+  "description": "2048Game Project for ELEC 876",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && npm run build:cp-public",
+    "build:cp-public": "cp ./src/*.html ./src/*.css  ./dist/"
+  },
+  "author": "Hannah",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-migrate": "^0.1.35"
+  }
+}
