@@ -44,8 +44,7 @@ function right() {
             parseInt(arr[k + 1].innerHTML) === parseInt(arr[k].innerHTML) &&
             access === true
           ) {
-            // @ts-expect-error TS(2367): This condition will always return 'false' since th... Remove this comment to see the full error message
-            access === false;
+            access = false;
           } else if (arr[k + 1].innerHTML === '') {
             // @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'.
             arr[k + 1].innerHTML = parseInt(arr[k].innerHTML);
@@ -99,8 +98,7 @@ function left() {
             parseInt(arr[k - 1].innerHTML) === parseInt(arr[k].innerHTML) &&
             access === true
           ) {
-            // @ts-expect-error TS(2367): This condition will always return 'false' since th... Remove this comment to see the full error message
-            access === false;
+            access = false;
           } else if (arr[k - 1].innerHTML === '') {
             // @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'.
             arr[k - 1].innerHTML = parseInt(arr[k].innerHTML);
@@ -153,8 +151,7 @@ function down() {
             parseInt(arr[k + 4].innerHTML) === parseInt(arr[k].innerHTML) &&
             access === true
           ) {
-            // @ts-expect-error TS(2367): This condition will always return 'false' since th... Remove this comment to see the full error message
-            access === false;
+            access = false;
           } else if (arr[k + 4].innerHTML === '') {
             // @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'.
             arr[k + 4].innerHTML = parseInt(arr[k].innerHTML);
@@ -207,8 +204,7 @@ function up() {
             parseInt(arr[k - 4].innerHTML) === parseInt(arr[k].innerHTML) &&
             access === true
           ) {
-            // @ts-expect-error TS(2367): This condition will always return 'false' since th... Remove this comment to see the full error message
-            access === false;
+            access = false;
           } else if (arr[k - 4].innerHTML === '') {
             // @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'.
             arr[k - 4].innerHTML = parseInt(arr[k].innerHTML);
