@@ -1,22 +1,22 @@
-var q = 4;
-var arr = document.getElementsByClassName('element');
+let q = 4;
+let arr = document.getElementsByClassName('element');
 init();
 
 // @ts-expect-error TS(2322): Type 'void' is not assignable to type '(((this: Gl... Remove this comment to see the full error message
 window.onload = init();
 
-var arr = document.getElementsByClassName('element');
+let arr = document.getElementsByClassName('element');
 
 function right() {
-  var can = false;
-  var access = false;
-  var k;
-  var score = document.getElementById('score');
+  let can = false;
+  let access = false;
+  let k;
+  let score = document.getElementById('score');
 
-  for (var i = 14; i > 0; i -= 4) {
+  for (let i = 14; i > 0; i -= 4) {
     //alert("step1");
     access = false;
-    for (var j = i; j >= i - 2; j--) {
+    for (let j = i; j >= i - 2; j--) {
       //alert("step2");
       if (arr[j].innerHTML !== '') {
         k = j;
@@ -62,15 +62,15 @@ function right() {
 }
 
 function left() {
-  var can = false;
-  var access = false;
-  var k;
-  var score = document.getElementById('score');
+  let can = false;
+  let access = false;
+  let k;
+  let score = document.getElementById('score');
   //fixed
-  for (var i = 13; i > 0; i -= 4) {
+  for (let i = 13; i > 0; i -= 4) {
     //alert("step1");
     access = false;
-    for (var j = i; j <= i + 2; j++) {
+    for (let j = i; j <= i + 2; j++) {
       //alert("step2");
       if (arr[j].innerHTML !== '') {
         k = j;
@@ -116,15 +116,15 @@ function left() {
 }
 
 function down() {
-  var can = false;
-  var access = false;
-  var k;
-  var score = document.getElementById('score');
+  let can = false;
+  let access = false;
+  let k;
+  let score = document.getElementById('score');
   //fixed
-  for (var i = 11; i > 7; i -= 1) {
+  for (let i = 11; i > 7; i -= 1) {
     //alert(arr[i].innerHTML==="");
     access = false;
-    for (var j = i; j >= 0; j = j - 4) {
+    for (let j = i; j >= 0; j = j - 4) {
       if (arr[j].innerHTML !== '') {
         k = j;
         while (
@@ -169,15 +169,15 @@ function down() {
 }
 
 function up() {
-  var can = false;
-  var access = false;
-  var k;
-  var score = document.getElementById('score');
+  let can = false;
+  let access = false;
+  let k;
+  let score = document.getElementById('score');
   //fixed
-  for (var i = 7; i > 3; i -= 1) {
+  for (let i = 7; i > 3; i -= 1) {
     //alert(arr[i].innerHTML==="");
     access = false;
-    for (var j = i; j < i + 9; j += 4) {
+    for (let j = i; j < i + 9; j += 4) {
       if (arr[j].innerHTML !== '') {
         k = j;
         while (
@@ -230,9 +230,9 @@ function end() {
 }
 
 function random() {
-  var done = false;
+  let done = false;
   while (done === false) {
-    var num = Math.floor(Math.random() * 16);
+    let num = Math.floor(Math.random() * 16);
     if (arr[num].innerHTML === '') {
       // @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'.
       arr[num].innerHTML = 2;
@@ -242,9 +242,9 @@ function random() {
 }
 
 function av() {
-  var x = false;
-  var count = 0;
-  for (var i = 0; i < 16; i++) {
+  let x = false;
+  let count = 0;
+  for (let i = 0; i < 16; i++) {
     if (arr[i].innerHTML === '') {
       x = true;
       count++;
@@ -259,8 +259,8 @@ function av() {
 }
 
 function check() {
-  var x = false;
-  for (var i = 0; i < 16; i++) {
+  let x = false;
+  for (let i = 0; i < 16; i++) {
     switch (i) {
       case 0:
         if (
@@ -414,26 +414,26 @@ function check() {
 }
 
 function init() {
-  var s = document.getElementById('splash');
+  let s = document.getElementById('splash');
   // @ts-expect-error TS(2531): Object is possibly 'null'.
   s.style.display = 'block';
-  var arr = document.getElementsByClassName('element');
-  for (var i = 0; i < 16; i += 1) {
+  let arr = document.getElementsByClassName('element');
+  for (let i = 0; i < 16; i += 1) {
     arr[i].innerHTML = '';
   }
-  var control = document.getElementById('control');
+  let control = document.getElementById('control');
   // @ts-expect-error TS(2531): Object is possibly 'null'.
   control.style.display = 'block';
-  var score = document.getElementById('score');
+  let score = document.getElementById('score');
   // @ts-expect-error TS(2531): Object is possibly 'null'.
   score.innerHTML = 0;
 }
 
 function pause() {
-  var pause = document.getElementById('pause');
+  let pause = document.getElementById('pause');
   // @ts-expect-error TS(2531): Object is possibly 'null'.
   pause.style.display = 'block';
-  var control = document.getElementById('control');
+  let control = document.getElementById('control');
   // @ts-expect-error TS(2531): Object is possibly 'null'.
   control.style.display = 'none';
 
@@ -442,7 +442,7 @@ function pause() {
 }
 
 function reset() {
-  var pause = document.getElementById('pause');
+  let pause = document.getElementById('pause');
   // @ts-expect-error TS(2531): Object is possibly 'null'.
   pause.style.display = 'none';
   init();
@@ -451,8 +451,8 @@ function reset() {
   window.addEventListener('keydown', handleKeydown);
 }
 function start() {
-  var splash = document.getElementById('splash');
-  var game = document.getElementById('game');
+  let splash = document.getElementById('splash');
+  let game = document.getElementById('game');
   // @ts-expect-error TS(2531): Object is possibly 'null'.
   splash.style.display = 'none';
   // @ts-expect-error TS(2531): Object is possibly 'null'.
@@ -462,10 +462,10 @@ function start() {
   //alert();
 }
 function resume() {
-  var pause = document.getElementById('pause');
+  let pause = document.getElementById('pause');
   // @ts-expect-error TS(2531): Object is possibly 'null'.
   pause.style.display = 'none';
-  var control = document.getElementById('control');
+  let control = document.getElementById('control');
   // @ts-expect-error TS(2531): Object is possibly 'null'.
   control.style.display = 'block';
 
